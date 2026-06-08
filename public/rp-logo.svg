@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 96" role="img" aria-label="RP Forge">
+  <defs>
+    <linearGradient id="mark" x1="22" y1="13" x2="91" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb15e"/>
+      <stop offset=".52" stop-color="#ff573d"/>
+      <stop offset="1" stop-color="#c92824"/>
+    </linearGradient>
+  </defs>
+  <path d="M55 8 94 30v36L55 88 16 66V30L55 8Z" fill="url(#mark)"/>
+  <path d="M33 66V30h27c10 0 17 6 17 15 0 6-3 11-9 14l11 7H64l-9-6h-9v6H33Zm13-17h13c3 0 5-2 5-5s-2-5-5-5H46v10Z" fill="#fff"/>
+  <path d="M83 36 93 30v36L83 72V36Z" fill="#7b1718" opacity=".42"/>
+  <text x="116" y="48" fill="#ffffff" font-family="Arial Black, Arial, sans-serif" font-size="32" letter-spacing="1">RP FORGE</text>
+  <text x="118" y="70" fill="#aab4c4" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="4">MONETIZED ROLEPLAY SERVERS</text>
+</svg>
