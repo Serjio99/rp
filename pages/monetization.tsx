@@ -38,10 +38,24 @@ export default function MonetizationPage() {
           <div className="shell package-grid">
             {packages.map((item) => (
               <article className="package-card" key={item.name}>
+                <span className="package-card__eyebrow">{item.tier}</span>
                 <item.icon size={32} />
                 <h3>{item.name}</h3>
                 <strong>{item.price}</strong>
                 <p>{item.text}</p>
+                <div className="package-card__meta">
+                  <span>Для кого</span>
+                  <b>{item.forWhom}</b>
+                </div>
+                <ul className="package-card__list">
+                  {item.options.map((option) => (
+                    <li key={option}>{option}</li>
+                  ))}
+                </ul>
+                <div className="package-card__result">
+                  <span>Результат</span>
+                  <p>{item.result}</p>
+                </div>
               </article>
             ))}
           </div>

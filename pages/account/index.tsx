@@ -161,6 +161,7 @@ export default function AccountPage() {
                     type="button"
                   >
                     <strong>{item.title}</strong>
+                    <small>{item.tier}</small>
                     <span>{item.price}</span>
                     <p>{item.text}</p>
                   </button>
@@ -175,7 +176,7 @@ export default function AccountPage() {
                   </label>
                   <label>
                     <span>Бюджет</span>
-                    <input value={budget} onChange={(event) => setBudget(event.target.value)} placeholder="Например: 150 000 ₽" />
+                    <input value={budget} onChange={(event) => setBudget(event.target.value)} placeholder="Например: 175 000 ₽" />
                   </label>
                 </div>
                 <label>

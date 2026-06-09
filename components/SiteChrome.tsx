@@ -266,7 +266,7 @@ export function LeadForm() {
         <Field label="Телефон" value={phone} onChange={setPhone} placeholder="+7 ..." />
       </div>
 
-      <Field label="Ориентир по бюджету" value={budget} onChange={setBudget} placeholder="от 80 000 ₽ / больше / хочу обсудить" />
+      <Field label="Ориентир по бюджету" value={budget} onChange={setBudget} placeholder="90 000 ₽ / 175 000 ₽ / 350 000 ₽" />
 
       <label>
         <span>Идея сервера</span>

@@ -21,6 +21,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { serverPackages } from "@/lib/catalog";
 
 export const features = [
   {
@@ -170,26 +171,17 @@ export const problems = [
   },
 ];
 
-export const packages = [
-  {
-    name: "Start City",
-    price: "от 80 000 ₽",
-    text: "База для серьезного запуска: ядро, экономика, первые фракции, базовый донат и настройка хостинга.",
-    icon: Car,
-  },
-  {
-    name: "Monetized RP",
-    price: "индивидуально",
-    text: "Город с продуманной витриной: магазин, подписки, VIP, Discord-связка, сайт и сценарии удержания.",
-    icon: Crown,
-  },
-  {
-    name: "Custom Empire",
-    price: "под задачу",
-    text: "Уникальная механика, сложные режимы, кастомные интерфейсы, личный кабинет, CRM и долгосрочное развитие.",
-    icon: Layers3,
-  },
-];
+const packageIcons = {
+  start_city: Car,
+  monetized_rp: Crown,
+  custom_empire: Layers3,
+} as const;
+
+export const packages = serverPackages.map((item) => ({
+  ...item,
+  name: item.title,
+  icon: packageIcons[item.id],
+}));
 
 export const monetizationBlocks = [
   {

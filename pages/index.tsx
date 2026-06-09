@@ -7,13 +7,10 @@ import {
   ArrowRight,
   Banknote,
   Bot,
-  Car,
   CheckCircle2,
-  Crown,
   DatabaseZap,
   Gamepad2,
   Gauge,
-  Layers3,
   Mail,
   Map,
   MessageCircle,
@@ -29,13 +26,14 @@ import {
   Zap,
 } from "lucide-react";
 import { AccountCta } from "@/components/AccountCta";
+import { packages } from "@/data/siteContent";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 const maxHref = "https://max.ru/u/f9LHodD0cOJw2F5E_nJod4xIhl0KVOG_TYTrOPiTZYmz5ggBSNMogpDpbyA";
 
 const stats = [
-  ["от 80 000 ₽", "старт серьезного проекта"],
+  ["от 90 000 ₽", "старт серьезного проекта"],
   ["FiveM", "ESX / QBCore / Lua / JS"],
   ["под ключ", "сервер, сайт, Discord, донат"],
 ];
@@ -111,27 +109,6 @@ const techStack = [
   "Java 21",
   "Discord",
   "VDS / VPS",
-];
-
-const packages = [
-  {
-    name: "Start City",
-    price: "от 80 000 ₽",
-    text: "База для серьезного запуска: ядро, экономика, первые фракции, базовый донат и настройка хостинга.",
-    icon: Car,
-  },
-  {
-    name: "Monetized RP",
-    price: "индивидуально",
-    text: "Город с продуманной витриной: магазин, подписки, VIP, Discord-связка, сайт и сценарии удержания.",
-    icon: Crown,
-  },
-  {
-    name: "Custom Empire",
-    price: "под задачу",
-    text: "Уникальная механика, сложные режимы, кастомные интерфейсы, личный кабинет, CRM и долгосрочное развитие.",
-    icon: Layers3,
-  },
 ];
 
 const contactLinks = [
@@ -239,7 +216,7 @@ function Hero() {
 
             <div className="offer-strip">
               <span>ТЗ помогу составить</span>
-              <span>от 80 000 ₽</span>
+              <span>от 90 000 ₽</span>
               <span>FiveM / ESX / QBCore</span>
             </div>
 
@@ -396,8 +373,8 @@ function PackagesSection() {
             </h2>
           </div>
           <p>
-            Работаю с бюджетом от 80 тыс ₽, потому что хороший RP-сервер требует не только установки
-            ресурсов, но и проектирования экономики, сценариев и поддержки запуска.
+            На сайте уже собрана продуктовая линейка из трех концепций: стартовый запуск, средний
+            сервер под рост и флагманский RP-проект под сильную монетизацию.
           </p>
         </div>
 
@@ -623,7 +600,7 @@ function LeadForm() {
         <Field label="Телефон" value={phone} onChange={setPhone} placeholder="+7 ..." />
       </div>
 
-      <Field label="Ориентир по бюджету" value={budget} onChange={setBudget} placeholder="от 80 000 ₽ / больше / хочу обсудить" />
+      <Field label="Ориентир по бюджету" value={budget} onChange={setBudget} placeholder="90 000 ₽ / 175 000 ₽ / 350 000 ₽" />
 
       <label>
         <span>Идея сервера</span>
@@ -701,13 +678,45 @@ function RuleCard({ icon: Icon, title, text }: { icon: LucideIcon; title: string
   );
 }
 
-function PackageCard({ icon: Icon, name, price, text }: { icon: LucideIcon; name: string; price: string; text: string }) {
+function PackageCard({
+  icon: Icon,
+  name,
+  tier,
+  price,
+  text,
+  forWhom,
+  result,
+  options,
+}: {
+  icon: LucideIcon;
+  name: string;
+  tier: string;
+  price: string;
+  text: string;
+  forWhom: string;
+  result: string;
+  options: readonly string[];
+}) {
   return (
     <article className="package-card">
+      <span className="package-card__eyebrow">{tier}</span>
       <Icon size={32} />
       <h3>{name}</h3>
       <strong>{price}</strong>
       <p>{text}</p>
+      <div className="package-card__meta">
+        <span>Для кого</span>
+        <b>{forWhom}</b>
+      </div>
+      <ul className="package-card__list">
+        {options.map((option) => (
+          <li key={option}>{option}</li>
+        ))}
+      </ul>
+      <div className="package-card__result">
+        <span>Результат</span>
+        <p>{result}</p>
+      </div>
       <a href="#contacts">
         Обсудить
         <ArrowRight size={16} />

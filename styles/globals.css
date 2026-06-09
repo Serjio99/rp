@@ -1437,6 +1437,9 @@ h2 {
 .package-card {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -1458,19 +1461,90 @@ h2 {
   color: var(--lime);
 }
 
+.package-card__eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid var(--fm-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
+  color: var(--fm-orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .package-card strong {
   display: block;
-  margin-top: 14px;
+  margin-top: 2px;
   color: var(--amber);
   font-size: 28px;
   font-weight: 900;
+}
+
+.package-card__meta,
+.package-card__result {
+  display: grid;
+  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.package-card__meta span,
+.package-card__result span {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.package-card__meta b {
+  color: #f5f7fb;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.package-card__result p {
+  margin-top: 0;
+}
+
+.package-card__list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.package-card__list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--fm-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.package-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--fm-red), var(--fm-orange));
+  box-shadow: 0 0 12px rgba(255, 122, 51, 0.4);
 }
 
 .package-card a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: auto;
   color: #d6fbff;
   font-size: 14px;
   font-weight: 900;
@@ -3448,6 +3522,7 @@ h3,
 }
 
 .account-package strong,
+.account-package small,
 .account-package span,
 .account-package p {
   display: block;
@@ -3455,6 +3530,15 @@ h3,
 
 .account-package strong {
   font-size: 18px;
+}
+
+.account-package small {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .account-package span {
