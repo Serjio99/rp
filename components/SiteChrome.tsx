@@ -10,6 +10,9 @@ import {
   Mail,
   MessageCircle,
   Phone,
+  ServerCog,
+  ShieldCheck,
+  WalletCards,
 } from "lucide-react";
 import { AccountCta } from "./AccountCta";
 
@@ -64,7 +67,7 @@ export function SiteHeader() {
         <span className="brand__logo">
           <img src="/rp-logo.svg" alt="RP Forge" />
         </span>
-        <span>
+        <span className="brand__copy">
           <span className="brand__name">RP Forge</span>
           <span className="brand__sub">FiveM • донат • живой город</span>
         </span>
@@ -319,17 +322,71 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="shell site-footer__grid">
-        <div>
-          <b>RP Forge</b>
-          <p>Разработка GTA 5 RP серверов под монетизацию: FiveM, ESX, QBCore, экономика, донат, Discord, сайт и запуск.</p>
+        <div className="site-footer__brand">
+          <Link className="brand brand--footer" href="/" aria-label="RP Forge">
+            <span className="brand__logo">
+              <img src="/rp-logo.svg" alt="RP Forge" />
+            </span>
+            <span className="brand__copy">
+              <span className="brand__name">RP Forge</span>
+              <span className="brand__sub">FiveM • донат • живой город</span>
+            </span>
+          </Link>
+          <p>
+            Разработка GTA 5 RP серверов под монетизацию: экономика, донат, личный кабинет,
+            Discord, сайт, техподдержка и запуск проекта под реальный онлайн.
+          </p>
+          <div className="site-footer__badges" aria-label="Ключевые направления">
+            <span>
+              <ServerCog size={15} />
+              FiveM / QBCore
+            </span>
+            <span>
+              <WalletCards size={15} />
+              Донат-витрина
+            </span>
+            <span>
+              <ShieldCheck size={15} />
+              Поддержка
+            </span>
+          </div>
         </div>
-        <div className="site-footer__links">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
+
+        <div className="site-footer__nav">
+          <span>Навигация</span>
+          <div className="site-footer__links">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
+
+        <div className="site-footer__contact">
+          <span>Связь</span>
+          <a href="tel:+79066346633">
+            <Phone size={16} />
+            +7 906 634-66-33
+          </a>
+          <a href="mailto:rp@prom-logic.ru">
+            <Mail size={16} />
+            rp@prom-logic.ru
+          </a>
+          <a href="https://t.me/Serge_CodeCrafter" target="_blank" rel="noreferrer">
+            <MessageCircle size={16} />
+            Telegram
+          </a>
+          <Link className="site-footer__cta" href="/account/register">
+            Заказать сервер
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+      </div>
+
+      <div className="shell site-footer__bottom">
+        <span>RP Forge - сервер как продукт, экономика как система.</span>
+        <a href="mailto:rp@prom-logic.ru">rp@prom-logic.ru</a>
       </div>
     </footer>
   );

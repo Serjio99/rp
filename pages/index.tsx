@@ -25,7 +25,7 @@ import {
   WalletCards,
   Zap,
 } from "lucide-react";
-import { AccountCta } from "@/components/AccountCta";
+import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { packages } from "@/data/siteContent";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -156,6 +156,7 @@ export default function RpLandingPage() {
       </Head>
 
       <main className="rp-site">
+        <SiteHeader />
         <Hero />
         <FeaturesSection />
         <MoneySection />
@@ -163,6 +164,7 @@ export default function RpLandingPage() {
         <ExploreSection />
         <TestimonialsSection />
         <ContactsSection />
+        <SiteFooter />
       </main>
     </>
   );
@@ -176,28 +178,6 @@ function Hero() {
       <div className="hero__grid" />
 
       <div className="shell hero__content">
-        <header className="topbar">
-          <a className="brand" href="#top" aria-label="RP Forge">
-            <span className="brand__logo">
-              <img src="/rp-logo.svg" alt="RP Forge" />
-            </span>
-            <span className="brand__copy">
-              <span className="brand__name">RP Forge</span>
-              <span className="brand__sub">FiveM • донат • живой город</span>
-            </span>
-          </a>
-
-          <nav className="nav">
-            <Link href="/stages">Этапы</Link>
-            <Link href="/portfolio">Портфолио</Link>
-            <Link href="/problems">Проблемы RP</Link>
-            <Link href="/monetization">Монетизация</Link>
-            <Link href="/support">Поддержка</Link>
-          </nav>
-
-          <AccountCta />
-        </header>
-
         <div className="hero__layout">
           <div className="hero__copy">
             <div className="kicker">
