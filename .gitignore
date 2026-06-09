@@ -4,6 +4,7 @@ out
 .idea
 .env
 .env.*
+!.env.example
 *.docx
 *.tsbuildinfo
 npm-debug.log*

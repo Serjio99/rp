@@ -77,10 +77,10 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <a className="topbar__cta" href="https://t.me/Serge_CodeCrafter" target="_blank" rel="noreferrer">
-        Обсудить проект
+      <Link className="topbar__cta" href="/account/register">
+        Зарегистрироваться
         <ArrowRight size={16} />
-      </a>
+      </Link>
     </header>
   );
 }
