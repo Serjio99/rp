@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, UserRound } from "lucide-react";
+import { ArrowRight, LogOut, UserRound } from "lucide-react";
 
 type AccountUser = {
   displayName?: string;
@@ -16,6 +16,7 @@ function accountLabel(user: AccountUser | null) {
 export function AccountCta() {
   const [user, setUser] = useState<AccountUser | null>(null);
   const [checked, setChecked] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -45,11 +46,38 @@ export function AccountCta() {
     };
   }, []);
 
+  async function logout() {
+    if (loggingOut) return;
+    setLoggingOut(true);
+
+    try {
+      await fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" });
+    } finally {
+      setUser(null);
+      setLoggingOut(false);
+      window.location.assign("/");
+    }
+  }
+
+  if (user) {
+    return (
+      <div className="account-cta-group">
+        <Link className="topbar__cta topbar__cta--account" href="/account">
+          <UserRound size={16} />
+          {checked ? accountLabel(user) : "Мой кабинет"}
+        </Link>
+        <button className="topbar__logout" type="button" onClick={logout} disabled={loggingOut}>
+          <LogOut size={16} />
+          {loggingOut ? "Выходим..." : "Выйти"}
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <Link className={user ? "topbar__cta topbar__cta--account" : "topbar__cta"} href={user ? "/account" : "/account/register"}>
-      {user ? <UserRound size={16} /> : null}
-      {checked ? accountLabel(user) : "Зарегистрироваться"}
-      {!user ? <ArrowRight size={16} /> : null}
+    <Link className="topbar__cta" href="/account/register">
+      {checked ? "Зарегистрироваться" : "Зарегистрироваться"}
+      <ArrowRight size={16} />
     </Link>
   );
 }

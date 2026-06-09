@@ -1,19 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Link from "next/link";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
+  ArrowUp,
   CheckCircle2,
   Compass,
   Gamepad2,
   Mail,
+  Menu,
   MessageCircle,
   Phone,
   ServerCog,
   ShieldCheck,
   WalletCards,
+  X,
 } from "lucide-react";
 import { AccountCta } from "./AccountCta";
 
@@ -89,9 +92,11 @@ export function SeoHead({
 }
 
 export function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="site-header">
-      <Link className="brand" href="/" aria-label="RP Forge">
+    <header className={`site-header${isOpen ? " is-open" : ""}`}>
+      <Link className="brand" href="/" aria-label="RP Forge" onClick={() => setIsOpen(false)}>
         <span className="brand__logo">
           <img src="/rp-logo.svg" alt="RP Forge" />
         </span>
@@ -103,13 +108,24 @@ export function SiteHeader() {
 
       <nav className="nav nav--pages">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
             {item.label}
           </Link>
         ))}
       </nav>
 
-      <AccountCta />
+      <div className="site-header__actions">
+        <AccountCta />
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((value) => !value)}
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
     </header>
   );
 }
@@ -126,6 +142,7 @@ export function PageShell({
       <SiteHeader />
       {children}
       <SiteFooter />
+      <ScrollToTop />
     </div>
   );
 }
@@ -311,6 +328,31 @@ export function PageNavigator({
         </div>
       </div>
     </section>
+  );
+}
+
+export function ScrollToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => setVisible(window.scrollY > 520);
+
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      className="scroll-to-top"
+      type="button"
+      aria-label="Наверх"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    >
+      <ArrowUp size={20} />
+    </button>
   );
 }
 

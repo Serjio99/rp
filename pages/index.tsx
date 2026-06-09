@@ -25,7 +25,7 @@ import {
   WalletCards,
   Zap,
 } from "lucide-react";
-import { PageNavigator, SiteFooter, SiteHeader, VisualStory } from "@/components/SiteChrome";
+import { PageNavigator, ScrollToTop, SiteFooter, SiteHeader, VisualStory } from "@/components/SiteChrome";
 import { ownerQuestions, packages, productPrinciples, seoFaq } from "@/data/siteContent";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -181,6 +181,7 @@ export default function RpLandingPage() {
         <PageNavigator />
         <ContactsSection />
         <SiteFooter />
+        <ScrollToTop />
       </main>
     </>
   );
