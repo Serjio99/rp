@@ -11,6 +11,7 @@ import {
   MessageCircle,
   Phone,
 } from "lucide-react";
+import { AccountCta } from "./AccountCta";
 
 export const navItems = [
   { href: "/", label: "Главная" },
@@ -77,10 +78,7 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link className="topbar__cta" href="/account/register">
-        Зарегистрироваться
-        <ArrowRight size={16} />
-      </Link>
+      <AccountCta />
     </header>
   );
 }

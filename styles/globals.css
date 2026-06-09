@@ -2645,6 +2645,18 @@ body {
   box-shadow: 0 12px 34px rgba(239, 75, 53, 0.28);
 }
 
+.topbar__cta {
+  max-width: 230px;
+  white-space: nowrap;
+}
+
+.topbar__cta--account {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: none;
+  text-overflow: ellipsis;
+}
+
 .topbar__cta:hover,
 .btn--primary:hover,
 .lead-form button:hover {

@@ -28,6 +28,7 @@ import {
   WalletCards,
   Zap,
 } from "lucide-react";
+import { AccountCta } from "@/components/AccountCta";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -217,10 +218,7 @@ function Hero() {
             <Link href="/support">Поддержка</Link>
           </nav>
 
-          <Link className="topbar__cta" href="/account/register">
-            Зарегистрироваться
-            <ArrowRight size={16} />
-          </Link>
+          <AccountCta />
         </header>
 
         <div className="hero__layout">
