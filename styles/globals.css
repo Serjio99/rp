@@ -4217,3 +4217,209 @@ h3,
     min-height: auto;
   }
 }
+
+/* Arizona V inspired GTA RP mood */
+:root {
+  --az-sand: #ffb35b;
+  --az-orange: #ff6a2a;
+  --az-pink: #ff3fb4;
+  --az-cyan: #25e6ff;
+  --az-violet: #32123f;
+  --az-night: #070713;
+}
+
+.rp-site {
+  background:
+    linear-gradient(180deg, rgba(5, 6, 15, 0.76), rgba(8, 5, 12, 0.95) 36%, rgba(8, 5, 10, 0.98)),
+    radial-gradient(circle at 22% 10%, rgba(255, 106, 42, 0.22), transparent 34rem),
+    radial-gradient(circle at 84% 18%, rgba(255, 63, 180, 0.16), transparent 30rem),
+    url("/rp-economy-ops.png") center top / cover fixed,
+    var(--az-night);
+}
+
+.hero__image {
+  object-position: center center;
+  filter: saturate(1.18) contrast(1.06);
+}
+
+.hero__shade {
+  background:
+    linear-gradient(90deg, rgba(5, 6, 15, 0.98) 0%, rgba(5, 6, 15, 0.82) 33%, rgba(17, 8, 20, 0.33) 67%, rgba(5, 6, 15, 0.82) 100%),
+    radial-gradient(circle at 78% 35%, rgba(255, 63, 180, 0.22), transparent 35%),
+    radial-gradient(circle at 34% 55%, rgba(255, 106, 42, 0.25), transparent 34%),
+    radial-gradient(circle at 68% 75%, rgba(37, 230, 255, 0.12), transparent 30%);
+}
+
+.hero::after,
+.page-hero::after,
+.visual-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  pointer-events: none;
+  background-image:
+    linear-gradient(115deg, transparent 0 23%, rgba(255, 179, 91, 0.7) 23% 23.35%, transparent 23.35% 72%, rgba(255, 63, 180, 0.65) 72% 72.35%, transparent 72.35%),
+    linear-gradient(rgba(255, 255, 255, 0.26) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 5px;
+}
+
+.hero__content {
+  z-index: 2;
+}
+
+.kicker,
+.section-kicker {
+  border-color: rgba(255, 179, 91, 0.26);
+  background:
+    linear-gradient(135deg, rgba(255, 106, 42, 0.14), rgba(255, 63, 180, 0.09)),
+    rgba(255, 255, 255, 0.045);
+  color: #ffe0c3;
+}
+
+.kicker svg,
+.section-kicker svg {
+  color: var(--az-cyan);
+}
+
+.text-cyan {
+  color: var(--az-cyan);
+  text-shadow: 0 0 26px rgba(37, 230, 255, 0.24);
+}
+
+.text-pink {
+  color: var(--az-pink);
+  text-shadow: 0 0 30px rgba(255, 63, 180, 0.25);
+}
+
+.text-lime {
+  color: var(--az-sand);
+  text-shadow: 0 0 26px rgba(255, 179, 91, 0.22);
+}
+
+.btn--primary,
+.lead-form button,
+.site-header .topbar__cta,
+.site-footer__cta {
+  background: linear-gradient(135deg, var(--az-orange), var(--az-pink)) !important;
+  box-shadow: 0 18px 54px rgba(255, 63, 180, 0.24), 0 10px 34px rgba(255, 106, 42, 0.16);
+}
+
+.btn--ghost {
+  border-color: rgba(37, 230, 255, 0.26);
+  background: rgba(37, 230, 255, 0.065);
+}
+
+.offer-strip {
+  border-color: rgba(255, 179, 91, 0.2);
+  background:
+    linear-gradient(90deg, rgba(255, 106, 42, 0.12), rgba(255, 63, 180, 0.08), rgba(37, 230, 255, 0.08)),
+    rgba(0, 0, 0, 0.26);
+}
+
+.stat,
+.feature-card,
+.rule-card,
+.package-card,
+.explore-card,
+.testimonial-card,
+.portfolio-card,
+.problem-card,
+.timeline-card,
+.seo-panel,
+.lead-form,
+.contact-links a,
+.max-card,
+.cockpit,
+.page-navigator__card,
+.insight-card,
+.faq-card,
+.owner-questions article {
+  border-color: rgba(255, 179, 91, 0.12);
+  background:
+    linear-gradient(145deg, rgba(255, 106, 42, 0.075), rgba(255, 63, 180, 0.045) 42%, rgba(37, 230, 255, 0.035)),
+    rgba(8, 10, 18, 0.76);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 20px 64px rgba(0, 0, 0, 0.28);
+}
+
+.feature-card svg,
+.rule-card svg,
+.package-card svg,
+.problem-card svg,
+.timeline-card svg,
+.contact-links svg {
+  color: var(--az-sand);
+  filter: drop-shadow(0 0 16px rgba(255, 106, 42, 0.22));
+}
+
+.page-hero {
+  background:
+    linear-gradient(90deg, rgba(6, 7, 16, 0.96), rgba(12, 6, 17, 0.82) 54%, rgba(6, 7, 16, 0.92)),
+    radial-gradient(circle at 74% 22%, rgba(255, 63, 180, 0.16), transparent 30rem),
+    url("/rp-economy-ops.png") center center / cover;
+}
+
+.page-hero__panel {
+  border-color: rgba(255, 179, 91, 0.2);
+  background:
+    linear-gradient(145deg, rgba(255, 106, 42, 0.16), rgba(255, 63, 180, 0.08)),
+    rgba(7, 8, 15, 0.82);
+}
+
+.page-hero__panel b {
+  color: var(--az-sand);
+}
+
+.page-hero__panel i {
+  border-color: rgba(37, 230, 255, 0.22);
+  box-shadow: 0 0 55px rgba(255, 63, 180, 0.18);
+}
+
+.section--dark,
+.page-navigator,
+.site-footer {
+  background:
+    linear-gradient(180deg, rgba(6, 7, 16, 0.94), rgba(8, 5, 12, 0.98)),
+    radial-gradient(circle at 12% 10%, rgba(255, 106, 42, 0.12), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgba(255, 63, 180, 0.1), transparent 24rem);
+}
+
+.visual-story {
+  background:
+    linear-gradient(90deg, rgba(6, 7, 16, 0.9), rgba(10, 6, 16, 0.72)),
+    url("/rp-economy-ops.png") center center / cover;
+}
+
+.visual-story__media {
+  border-color: rgba(255, 179, 91, 0.18);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42), 0 0 50px rgba(255, 63, 180, 0.12);
+}
+
+.visual-story__points span,
+.site-footer__badges span,
+.stack span,
+.offer-strip span {
+  border-color: rgba(255, 179, 91, 0.14);
+  background: rgba(255, 106, 42, 0.08);
+}
+
+.site-header .nav--pages a:hover,
+.site-footer__links a:hover,
+.site-footer__contact a:hover,
+.page-navigator__card:hover {
+  border-color: rgba(255, 179, 91, 0.34);
+  background: linear-gradient(135deg, rgba(255, 106, 42, 0.16), rgba(255, 63, 180, 0.12));
+}
+
+@media (max-width: 760px) {
+  .rp-site {
+    background:
+      linear-gradient(180deg, rgba(5, 6, 15, 0.88), rgba(8, 5, 12, 0.98)),
+      url("/rp-economy-ops.png") center top / auto 760px no-repeat,
+      var(--az-night);
+  }
+
+  .hero__image {
+    object-position: 58% center;
+  }
+}

@@ -189,7 +189,7 @@ export default function RpLandingPage() {
 function Hero() {
   return (
     <section id="top" className="hero">
-      <img className="hero__image" src="/hero-rp-city.png" alt="Ночной RP-город с серверной инфраструктурой" />
+      <img className="hero__image" src="/hero-rp-city.png" alt="Пустынная GTA RP трасса с неоновым городом и серверной инфраструктурой" />
       <div className="hero__shade" />
       <div className="hero__grid" />
 
@@ -207,7 +207,7 @@ function Hero() {
             </h1>
             <p>
               Не “сборка скриптов”, а запуск игрового продукта: экономика, фракции, донат-витрина,
-              Discord, сайт, хостинг, правила и roadmap роста комьюнити.
+              Discord, сайт, хостинг, правила и roadmap роста комьюнити в дорогой Arizona/GTA-эстетике.
             </p>
 
             <div className="offer-strip">

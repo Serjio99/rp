@@ -161,7 +161,7 @@ export function PageHero({
         </div>
 
         <div className="page-hero__panel">
-          <b>RP PROJECT MAP</b>
+          <b>ARIZONA RP ROUTE</b>
           <span>идея → экономика → сервер → сайт → запуск</span>
           <i />
         </div>
