@@ -1,5 +1,6 @@
 import { Gauge, LifeBuoy, ServerCog, Wrench } from "lucide-react";
-import { ContactSection, PageHero, PageShell, SeoHead } from "@/components/SiteChrome";
+import { ContactSection, PageHero, PageNavigator, PageShell, SeoHead, VisualStory } from "@/components/SiteChrome";
+import { seoTexts } from "@/data/siteContent";
 
 const supportItems = [
   {
@@ -39,6 +40,21 @@ export default function SupportPage() {
           description="RP-проект живёт обновлениями, событиями, исправлениями и вниманием к игрокам. Без поддержки даже хороший старт быстро выгорает."
         />
 
+        <VisualStory
+          eyebrow="live operations"
+          icon={LifeBuoy}
+          image="/rp-live-support.png"
+          alt="Иллюстрация технической поддержки и мониторинга RP-сервера"
+          title={
+            <>
+              После запуска серверу нужен <span className="text-lime">операционный контур</span>
+            </>
+          }
+          text="Поддержка - это не только правка багов. Это мониторинг, обновления, ответы игрокам, контроль экономики, развитие доната и регулярное улучшение города."
+          points={["Мониторинг и логи", "Обновления и события", "Поддержка заявок владельца"]}
+          reverse
+        />
+
         <section className="section">
           <div className="shell feature-grid">
             {supportItems.map((item) => (
@@ -66,8 +82,11 @@ export default function SupportPage() {
               от стабильности, модерации, прозрачных правил, быстрого исправления проблем и ощущения, что город
               развивается.
             </p>
+            <p>{seoTexts.support}</p>
           </div>
         </section>
+
+        <PageNavigator />
 
         <ContactSection
           title="Нужна поддержка после запуска?"

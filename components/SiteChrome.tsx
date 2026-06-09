@@ -6,6 +6,7 @@ import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
   CheckCircle2,
+  Compass,
   Gamepad2,
   Mail,
   MessageCircle,
@@ -26,6 +27,33 @@ export const navItems = [
 ];
 
 const maxHref = "https://max.ru/u/f9LHodD0cOJw2F5E_nJod4xIhl0KVOG_TYTrOPiTZYmz5ggBSNMogpDpbyA";
+
+const journeyLinks = [
+  {
+    href: "/stages",
+    step: "01",
+    title: "Понять этапы",
+    text: "Как идея превращается в FiveM-сервер, сайт, Discord, донат и запуск.",
+  },
+  {
+    href: "/monetization",
+    step: "02",
+    title: "Собрать донат",
+    text: "VIP, подписки, кейсы, роли и витрина без разрушения доверия игроков.",
+  },
+  {
+    href: "/problems",
+    step: "03",
+    title: "Снять риски",
+    text: "Экономика, лаги, модерация, удержание, баги и хаос в скриптах.",
+  },
+  {
+    href: "/account/register",
+    step: "04",
+    title: "Заказать сервер",
+    text: "Выберите формат проекта и закрепите заявку в личном кабинете.",
+  },
+];
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -205,6 +233,82 @@ export function ContactSection({
         </div>
 
         <LeadForm />
+      </div>
+    </section>
+  );
+}
+
+export function VisualStory({
+  eyebrow,
+  title,
+  text,
+  image,
+  alt,
+  points,
+  icon: Icon = Gamepad2,
+  reverse = false,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  text: string;
+  image: string;
+  alt: string;
+  points: readonly string[];
+  icon?: LucideIcon;
+  reverse?: boolean;
+}) {
+  return (
+    <section className={`section visual-story${reverse ? " visual-story--reverse" : ""}`}>
+      <div className="shell visual-story__grid">
+        <div className="visual-story__copy">
+          <SectionKicker icon={Icon}>{eyebrow}</SectionKicker>
+          <h2>{title}</h2>
+          <p className="lead">{text}</p>
+          <div className="visual-story__points">
+            {points.map((point) => (
+              <span key={point}>
+                <CheckCircle2 size={16} />
+                {point}
+              </span>
+            ))}
+          </div>
+        </div>
+        <figure className="visual-story__media">
+          <img src={image} alt={alt} />
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+export function PageNavigator({
+  title = "Удобный маршрут по проекту",
+  text = "Если вы только выбираете формат сервера, двигайтесь по этим разделам: сначала этапы, затем монетизация, риски и заявка.",
+}: {
+  title?: string;
+  text?: string;
+}) {
+  return (
+    <section className="section section--dark page-navigator">
+      <div className="shell">
+        <div className="section__intro">
+          <SectionKicker icon={Compass}>логистика сайта</SectionKicker>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </div>
+        <div className="page-navigator__grid">
+          {journeyLinks.map((item) => (
+            <Link className="page-navigator__card" href={item.href} key={item.href}>
+              <b>{item.step}</b>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <span>
+                Перейти
+                <ArrowRight size={15} />
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

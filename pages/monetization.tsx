@@ -1,5 +1,5 @@
 import { Banknote, Store } from "lucide-react";
-import { ContactSection, PageHero, PageShell, SectionKicker, SeoHead } from "@/components/SiteChrome";
+import { ContactSection, PageHero, PageNavigator, PageShell, SectionKicker, SeoHead, VisualStory } from "@/components/SiteChrome";
 import { monetizationBlocks, packages, seoTexts } from "@/data/siteContent";
 
 export default function MonetizationPage() {
@@ -20,6 +20,21 @@ export default function MonetizationPage() {
             </>
           }
           description="Правильная монетизация продаёт статус, удобство и участие в проекте, а не ломает доверие игроков."
+        />
+
+        <VisualStory
+          eyebrow="донат-витрина"
+          icon={Store}
+          image="/rp-economy-ops.png"
+          alt="Иллюстрация монетизации и экономики GTA RP сервера"
+          title={
+            <>
+              Монетизация начинается не с кнопки оплаты, а с <span className="text-pink">ценности для игрока</span>
+            </>
+          }
+          text="Витрина должна объяснять, что покупает игрок, как это выдается, почему это честно и как покупка вписывается в жизнь RP-города."
+          points={["Tebex как платежный контур", "Пакеты без грубого pay-to-win", "Авто-выдача и история покупок"]}
+          reverse
         />
 
         <section className="section">
@@ -74,8 +89,15 @@ export default function MonetizationPage() {
               наборы и кейсы. Но каждый пакет нужно проверять на баланс, иначе краткосрочная прибыль испортит
               онлайн и репутацию проекта.
             </p>
+            <p>
+              Важно заранее продумать refund-логику, выдачу покупок, роли Discord, ограничения привилегий,
+              сезонные предложения и то, как донат будет выглядеть для обычного игрока, который не платит.
+              Это напрямую влияет на доверие к проекту.
+            </p>
           </div>
         </section>
+
+        <PageNavigator />
 
         <ContactSection
           title="Хотите продуманную донат-систему?"

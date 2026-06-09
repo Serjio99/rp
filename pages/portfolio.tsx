@@ -1,6 +1,6 @@
 import { BriefcaseBusiness, Trophy } from "lucide-react";
-import { ContactSection, PageHero, PageShell, SectionKicker, SeoHead } from "@/components/SiteChrome";
-import { portfolioCases } from "@/data/siteContent";
+import { ContactSection, PageHero, PageNavigator, PageShell, SectionKicker, SeoHead, VisualStory } from "@/components/SiteChrome";
+import { portfolioCases, seoTexts } from "@/data/siteContent";
 
 export default function PortfolioPage() {
   return (
@@ -20,6 +20,20 @@ export default function PortfolioPage() {
             </>
           }
           description="Опыт в GTA 5 RP, Minecraft, Rust и кастомных игровых режимах помогает не наступать на типовые ошибки новичков."
+        />
+
+        <VisualStory
+          eyebrow="опыт разработки"
+          icon={BriefcaseBusiness}
+          image="/rp-production-roadmap.png"
+          alt="Иллюстрация опыта разработки игровых серверов и roadmap запуска"
+          title={
+            <>
+              В портфолио важен не скриншот, а <span className="text-lime">решенная задача</span>
+            </>
+          }
+          text="Игровой сервер оценивается по тому, насколько он удерживает игроков, выдерживает нагрузку, удобно администрируется и превращает интерес аудитории в понятную монетизацию."
+          points={["Экономика и удержание", "Сайт, Discord и автоматизация", "Техническая стабильность"]}
         />
 
         <section className="section">
@@ -53,8 +67,11 @@ export default function PortfolioPage() {
               онлайн: фракции, бизнесы, конфликты, ивенты, прогресс, редкие предметы, социальные статусы и
               внутренние цели. Именно эти элементы превращают сервер в живой город.
             </p>
+            <p>{seoTexts.portfolio}</p>
           </div>
         </section>
+
+        <PageNavigator />
 
         <ContactSection
           title="Хотите проект с похожей логикой?"

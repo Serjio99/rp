@@ -25,8 +25,8 @@ import {
   WalletCards,
   Zap,
 } from "lucide-react";
-import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { packages } from "@/data/siteContent";
+import { PageNavigator, SiteFooter, SiteHeader, VisualStory } from "@/components/SiteChrome";
+import { ownerQuestions, packages, productPrinciples, seoFaq } from "@/data/siteContent";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -160,9 +160,25 @@ export default function RpLandingPage() {
         <Hero />
         <FeaturesSection />
         <MoneySection />
+        <VisualStory
+          eyebrow="экономика как продукт"
+          icon={WalletCards}
+          image="/rp-economy-ops.png"
+          alt="Неоновая иллюстрация экономики и донат-системы RP-сервера"
+          title={
+            <>
+              Донат, jobs и бизнесы должны работать как <span className="text-lime">единая экономика</span>
+            </>
+          }
+          text="Игроки покупают не просто предметы. Они покупают статус, удобство, принадлежность к городу и ощущение прогресса, поэтому монетизация проектируется вместе с правилами, профессиями и балансом."
+          points={["Tebex и выдача покупок", "VIP, роли, кейсы и подписки", "Баланс валюты, jobs и бизнесов"]}
+        />
         <PackagesSection />
         <ExploreSection />
+        <ProductPrinciplesSection />
         <TestimonialsSection />
+        <FaqSection />
+        <PageNavigator />
         <ContactsSection />
         <SiteFooter />
       </main>
@@ -422,6 +438,64 @@ function ExploreSection() {
                 <ArrowRight size={15} />
               </span>
             </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductPrinciplesSection() {
+  return (
+    <section className="section section--raised">
+      <div className="shell">
+        <div className="section__intro">
+          <SectionKicker icon={ShieldCheck}>что делает сервер сильным</SectionKicker>
+          <h2>
+            Хороший RP-сервер продаёт <span className="text-pink">ощущение живого города</span>
+          </h2>
+          <p>
+            Визуал важен, но игроки остаются там, где есть цели, правила, прогресс, понятная администрация
+            и честная монетизация. Поэтому проект собирается вокруг опыта игрока и удобства владельца.
+          </p>
+        </div>
+        <div className="insight-grid">
+          {productPrinciples.map((item) => (
+            <article className="insight-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="owner-questions">
+          {ownerQuestions.map((item) => (
+            <article key={item.title}>
+              <b>{item.title}</b>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="section section--dark">
+      <div className="shell">
+        <div className="section__intro">
+          <SectionKicker icon={MessageCircle}>SEO / вопросы владельца</SectionKicker>
+          <h2>
+            Частые вопросы перед заказом <span className="text-cyan">RP-сервера</span>
+          </h2>
+        </div>
+        <div className="faq-grid">
+          {seoFaq.map((item) => (
+            <article className="faq-card" key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
           ))}
         </div>
       </div>

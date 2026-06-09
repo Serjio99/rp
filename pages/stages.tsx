@@ -1,5 +1,5 @@
 import { ClipboardList, Rocket } from "lucide-react";
-import { ContactSection, PageHero, PageShell, SectionKicker, SeoHead } from "@/components/SiteChrome";
+import { ContactSection, PageHero, PageNavigator, PageShell, SectionKicker, SeoHead, VisualStory } from "@/components/SiteChrome";
 import { seoTexts, stages } from "@/data/siteContent";
 
 export default function StagesPage() {
@@ -20,6 +20,20 @@ export default function StagesPage() {
             </>
           }
           description="Понятный процесс разработки игрового сервера снижает риск хаоса, перерасхода бюджета и бесконечных переделок."
+        />
+
+        <VisualStory
+          eyebrow="production pipeline"
+          icon={ClipboardList}
+          image="/rp-production-roadmap.png"
+          alt="Неоновая иллюстрация этапов разработки RP-сервера"
+          title={
+            <>
+              Разработка должна идти по <span className="text-lime">маршруту запуска</span>, а не по хаосу задач
+            </>
+          }
+          text="Удобная логистика проекта начинается с понятного плана: что делаем сначала, что можно отложить, где появляются риски и когда сервер уже готов к рекламе."
+          points={["Концепция и экономика до сборки", "Тесты до публичного онлайна", "Roadmap обновлений после старта"]}
         />
 
         <section className="section">
@@ -48,8 +62,15 @@ export default function StagesPage() {
               Поэтому сервер лучше собирать как бизнес-проект: сначала модель и сценарии, затем техническое
               ядро, потом витрина и публичный старт.
             </p>
+            <p>
+              Такой подход удобен и для заказчика: на каждом шаге понятно, что уже готово, какие решения
+              влияют на бюджет, когда можно показывать проект игрокам и какие задачи лучше оставить на
+              обновления после релиза.
+            </p>
           </div>
         </section>
+
+        <PageNavigator />
 
         <ContactSection
           title="Нужен план разработки под вашу идею?"
